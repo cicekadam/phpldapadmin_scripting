@@ -1,0 +1,13 @@
+<VirtualHost *:80>
+        ServerName ${HOSTNAME}
+        DocumentRoot /usr/share/phpldapadmin/htdocs
+        
+        <Directory /usr/share/phpldapadmin/htdocs>
+          <IfModule mod_authz_core.c>
+            # Apache 2.4
+            Require all granted
+          </IfModule>
+        </Directory>
+        ErrorLog /var/log/httpd/ldapmaster.kifarunix-demo.com.error.log
+        CustomLog /var/log/httpd/ldapmaster.kifarunix-demo.com.access.log combined
+</VirtualHost>
