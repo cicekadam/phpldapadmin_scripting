@@ -44,8 +44,8 @@ fi
 sed -i "s#,389#${servport}#g" /usr/share/phpldapadmin/config/config.php
 
 
-# I tought the uid will be a lot usefull for logins, you may change it as 'dn' to require full dn
-echo "$servers->setValue('login','attr','uid');" >> /usr/share/phpldapadmin/config/config.php
+# I tought the uid will be a lot usefull for logins, you may comment out it to require full dn
+sed -i "s#?>#\$servers->setValue('login','attr','uid');\n?>#g" /usr/share/phpldapadmin/config/config.php
 
 # Fixing file configuration
 chown -R apache:apache /usr/share/phpldapadmin
